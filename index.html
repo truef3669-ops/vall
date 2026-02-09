@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💫</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #1b0f2e, #0b0614);
+      color: #f5e9ff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header { padding: 100px 20px 60px; }
+    h1 { font-size: 3.2rem; margin-bottom: 15px; letter-spacing: 1px; }
+    .glow { color: #ffb3ff; text-shadow: 0 0 15px rgba(255,179,255,.6); }
+    .subtitle { font-size: 1.3rem; opacity: .85; }
+    .card {
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px 30px;
+      border-radius: 25px;
+      box-shadow: 0 30px 60px rgba(0,0,0,.4);
+    }
+    .card h2 { margin-top: 0; color: #ff9de2; font-size: 2rem; }
+    .names { font-size: 1.5rem; margin-top: 10px; opacity: .9; }
+    .btn {
+      padding: 16px 34px;
+      background: linear-gradient(135deg,#ff5acd,#ff2e93);
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 15px 30px rgba(255,46,147,.4);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      color: #ff7ad9;
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+      opacity: .8;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+    @keyframes shakeAnim {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      50% { transform: translateX(6px); }
+      75% { transform: translateX(-6px); }
+      100% { transform: translateX(0); }
+    }
+    .shake { animation: shakeAnim .4s; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 class="glow">Happy Valentine’s Day ✨</h1>
+  <div class="names">— <strong id="herName">PYARIII BABYY😛🙇🏻</strong> —</div>
+</header>
+
+  <section class="card">
+    <h2>Why You’re My Favorite Person 💫</h2>
+    <p>
+       Beacuse.... bas tumne ne hi mere se baat ki...
+       (mujhe bas tum hi bad photos deti ho🫣)
+       Tum se bas chat karne se hi something something hone lagta hai😭
+       photo dekh ke toh....BOOMM🫦
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Imp Moments🦋</h2>
+    <div class="memories">
+      <div class="memory">➮Tum mujhse sorry bulwati ho👊🏻</div>
+      <div class="memory">➮Photo bas 2 sec ke liye deti ho😭</div>
+      <div class="memory">➮Mujhe se bhikh mangwati ho "begging". Fir bhi last mein "NO" bol deti ho👊🏻</div>
+      <div class="memory">➮Ignore karti ho😖</div>
+      <div class="memory">➮Shayad pyarrr bhi nahi karti😔</div>
+  </section>
+
+  <section class="card">
+    <h2>🐍👸🏻</h2>
+    <p style="opacity:0.8"></p>
+    <div class="photos">
+      <img src="photo1.jpg" >
+      <img src="photo2.jpg" >
+      <img src="photo3.jpg" >
+    </div>
+  </section>
+
+<section class="card">
+  <h2>One Honest Question....</h2>
+  <p>Will you be my Valentine?👉🏻👈🏻🙈</p>
+  <div style="display:flex;gap:16px;justify-content:center;">
+    <button class="btn" id="yesBtn">Yes 🕺🏻</button>
+    <button class="btn" id="noBtn" style="background:#666">No😒 </button>
+  </div>
+  <p id="reaction" style="margin-top:20px;min-height:1.5em"></p>
+</section>
+
+<audio id="sadAudio" src="vl/sd.mp3"></audio>
+<audio id="happyAudio" src="happy.mp3"></audio>
+
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const reaction = document.getElementById('reaction');
+  const sadAudio = document.getElementById('sadAudio');
+  const happyAudio = document.getElementById('happyAudio');
+  const herName = document.getElementById('herName').textContent;
+  let noCount = 0;
+
+  function createHeart() {
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.textContent = '❤';
+    h.style.left = Math.random()*100+'vw';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  }
+  setInterval(createHeart,500);
+
+  yesBtn.addEventListener('click', () => {
+    sadAudio.pause(); sadAudio.currentTime = 0;
+    happyAudio.play();
+
+    document.body.innerHTML = '';
+    const wrap = document.createElement('div');
+    wrap.style.minHeight='100vh';
+    wrap.style.display='flex';
+    wrap.style.flexDirection='column';
+    wrap.style.justifyContent='center';
+    wrap.style.alignItems='center';
+    wrap.style.background='radial-gradient(circle at top,#1b0f2e,#0b0614)';
+    wrap.innerHTML = `<h1 style="font-size:4rem;color:#ffb3ff">Good girl...I love youuu bahott jada muuaahhhh..muuahhh...ye lo bhaot sari kissiii...😋😛🫶🏻🦑🐣</h1><div style="font-size:3rem">🎉🍫🍬🍰</div>`;
+    document.body.appendChild(wrap);
+
+    setInterval(()=>{
+      for(let i=0;i<25;i++){
+        const p=document.createElement('div');
+        p.style.position='fixed';p.style.width='8px';p.style.height='8px';p.style.borderRadius='50%';
+        p.style.left=Math.random()*100+'vw';p.style.top='50%';
+        p.style.background=`hsl(${Math.random()*360},90%,60%)`;
+        document.body.appendChild(p);
+        const x=(Math.random()-.5)*400,y=(Math.random()-.5)*400;
+        p.animate([{transform:'translate(0,0)',opacity:1},{transform:`translate(${x}px,${y}px)`,opacity:0}],{duration:1200});
+        setTimeout(()=>p.remove(),1300);
+      }
+    },900);
+  });
+
+  noBtn.addEventListener('click', () => {
+    noCount++;
+    sadAudio.play();
+    document.body.classList.add('shake');
+    setTimeout(()=>document.body.classList.remove('shake'),400);
+
+    yesBtn.style.transform = `scale(${1 + noCount*0.15})`;
+
+    if(noCount===1) reaction.textContent=`🥺 Are you sure?`;
+    else if(noCount===2) reaction.textContent='😖 are you REALLY sure??';
+    else{
+      reaction.textContent='Ladkiiii.... chup chap yes bol 👊🏻🙈';
+      noBtn.style.display='none';
+    }
+  });
+
+  document.addEventListener('mousemove', e => {
+    if(noCount>=3 && noBtn.style.display!=='none'){
+      const r=noBtn.getBoundingClientRect();
+      const d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2));
+      if(d<120){
+        noBtn.style.position='absolute';
+        noBtn.style.left=Math.random()*80+'vw';
+        noBtn.style.top=Math.random()*60+'vh';
+      }
+    }
+  });
+</script>
+</body>
+</html>
